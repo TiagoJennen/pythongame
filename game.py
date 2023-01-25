@@ -29,3 +29,28 @@ food.penup()
 food.goto(0, 100)
 
 segments = []
+
+pen = turtle.Turtle()
+pen.speed(0)
+pen.shape("square")
+pen.color("red")
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 260)
+pen.write("Score: 0  High Score: 0", align="center", font=("Courier", 24, "normal"))
+
+def go_up():
+    if head.direction != "down":
+        head.direction = "up"
+
+def go_down():
+    if head.directiom != "up":
+        head.direction = "down"
+
+def go_left():
+    if head.direction != "right":
+        head.direction = "left"
+
+def go_right():
+    if head.direction != "left":
+        head.direction = "right"
