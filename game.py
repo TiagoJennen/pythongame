@@ -54,3 +54,51 @@ def go_left():
 def go_right():
     if head.direction != "left":
         head.direction = "right"
+
+def move():
+    if head.direction == "up":
+        y = head.ycor()
+        head.sety(y + 20)
+    
+    if head.direction == "down":
+        y = head.ycor()
+        head.sety(y - 20)
+
+    if head.direction == "left":
+        x = head.xcor()
+        head.setx(x - 20)
+    
+    if head.direction == "right":
+        x = head.xcor()
+        head.setx(x + 20)
+
+wn.listen()
+wn.onkeypress(go_up, "w")
+wn.onkeypress(go_down, "s")
+wn.onkeypress(go_left, "a")
+wn.onkeypress(go_right, "d")
+
+while True:
+    wn.update()
+
+    if head.xcor()>290 or head.xcor()<-290 or head.ycor()>290 or head.ycor()<290:
+        time.sleep(1)
+        head.goto(0, 0)
+        head.direction = "stop"
+        
+        for segment in segments:
+            segment.goto(1000, 1000)
+
+        segments.clear()
+
+        score = 0
+
+        delay = 0,1
+
+        pen.clear()
+        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("courier", 24, "normal"))
+
+    if head.distance(food) < 20:
+        x = random.randint(-290, 290)
+        y = random.randint(-290, 290)
+        food.goto(x,y)
