@@ -9,13 +9,13 @@ high_score = 0
 
 wn = turtle.Screen()
 wn.title("Snake Game by Stijn & Tiago")
-wn.bgcolor("green")
+wn.bgcolor("black")
 wn.setup(width=600, height=600)
 wn.tracer(0) 
 
 head = turtle.Turtle()
 head.speed(0)
-head.shape("square")
+head.shape("circle")
 head.color("red")
 head.penup()
 head.goto(0,0)
@@ -24,7 +24,7 @@ head.direction = "stop"
 food = turtle.Turtle()
 food.speed(0)
 food.shape("circle")
-food.color("red")
+food.color("aquamarine")
 food.penup()
 food.goto(0,100)
 
@@ -32,12 +32,12 @@ segments = []
 
 pen = turtle.Turtle()
 pen.speed(0)
-pen.shape("square")
+pen.shape("circle")
 pen.color("white")
 pen.penup()
 pen.hideturtle()
 pen.goto(0, 260)
-pen.write("Score: 0  High Score: 0", align="center", font=("Courier", 24, "normal"))
+pen.write("Score: 0  High Score: 0", align="center", font=("akiraexpanded", 24, "normal"))
 
 def go_up():
     if head.direction != "down":
@@ -96,7 +96,7 @@ while True:
         delay = 0.1
 
         pen.clear()
-        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal")) 
+        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("akiraexpanded", 24, "normal")) 
 
 
     if head.distance(food) < 20:
@@ -106,8 +106,8 @@ while True:
 
         new_segment = turtle.Turtle()
         new_segment.speed(0)
-        new_segment.shape("square")
-        new_segment.color("grey")
+        new_segment.shape("circle")
+        new_segment.color("aquamarine")
         new_segment.penup()
         segments.append(new_segment)
 
@@ -119,7 +119,7 @@ while True:
             high_score = score
         
         pen.clear()
-        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal")) 
+        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("akiraexpanded", 24, "normal")) 
 
     for index in range(len(segments)-1, 0, -1):
         x = segments[index-1].xcor()
@@ -149,7 +149,7 @@ while True:
             delay = 0.1
         
             pen.clear()
-            pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal"))
+            pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("akiraexpanded", 24, "normal"))
 
     time.sleep(delay)
 
