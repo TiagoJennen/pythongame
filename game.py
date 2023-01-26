@@ -35,7 +35,7 @@ scorebord = turtle.Turtle()
 scorebord.color("white")
 scorebord.penup()
 scorebord.hideturtle()
-scorebord.goto(0, 425)
+scorebord.goto(0, 260)
 scorebord.write("Score: 0  High Score: 0", align="center", font=("akiraexpanded", 24, "normal"))
 
 def go_up():
@@ -80,7 +80,7 @@ achtergrond.onkeypress(go_right, "d")
 while True:
     achtergrond.update()
 
-    if head.xcor()>1000 or head.xcor()<-1000 or head.ycor()>1000 or head.ycor()<-1000:
+    if head.xcor()>290 or head.xcor()<-290 or head.ycor()>290 or head.ycor()<-290:
         time.sleep(1)
         head.goto(0,0)
         head.direction = "stop"
@@ -99,8 +99,8 @@ while True:
 
 
     if head.distance(food) < 20:
-        x = random.randint(-600, 600)
-        y = random.randint(-600, 600)
+        x = random.randint(-290, 290)
+        y = random.randint(-290, 290)
         food.goto(x,y)
 
         new_segment = turtle.Turtle()
