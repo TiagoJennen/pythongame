@@ -16,8 +16,8 @@ achtergrond.bgpic("regenboog achtergond.png")
 
 head = turtle.Turtle()
 head.speed(0)
-head.shape("square")
-head.color("white")
+head.shape("circle")
+head.color("red")
 head.penup()
 head.goto(0,0)
 head.direction = "stop"
@@ -25,7 +25,7 @@ head.direction = "stop"
 food = turtle.Turtle()
 food.speed(0)
 food.shape("circle")
-food.color("crimson")
+food.color("red")
 food.penup()
 food.goto(0,100)
 
@@ -35,7 +35,7 @@ scorebord = turtle.Turtle()
 scorebord.color("white")
 scorebord.penup()
 scorebord.hideturtle()
-scorebord.goto(0, 260)
+scorebord.goto(0, 425)
 scorebord.write("Score: 0  High Score: 0", align="center", font=("akiraexpanded", 24, "normal"))
 
 def go_up():
@@ -80,7 +80,7 @@ achtergrond.onkeypress(go_right, "d")
 while True:
     achtergrond.update()
 
-    if head.xcor()>290 or head.xcor()<-290 or head.ycor()>290 or head.ycor()<-290:
+    if head.xcor()>1000 or head.xcor()<-1000 or head.ycor()>1000 or head.ycor()<-1000:
         time.sleep(1)
         head.goto(0,0)
         head.direction = "stop"
@@ -99,14 +99,14 @@ while True:
 
 
     if head.distance(food) < 20:
-        x = random.randint(-290, 290)
-        y = random.randint(-290, 290)
+        x = random.randint(-600, 600)
+        y = random.randint(-600, 600)
         food.goto(x,y)
 
         new_segment = turtle.Turtle()
         new_segment.speed(0)
-        new_segment.shape("circle")
-        new_segment.color("crimson")
+        new_segment.shape("square")
+        new_segment.color("green")
         new_segment.penup()
         segments.append(new_segment)
 
